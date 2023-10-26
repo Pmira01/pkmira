@@ -23,11 +23,37 @@
       <form method="post" action="sent.php">
         <div class="form-item">Nama</div>
         <input type="text" name="name">
+
+        <div class="form-item">Umur</div>
+        <select name="age">
+          <option value="pilih">Pilih</option>
+          <!-- Gunakan loop for untuk membuat umur antara 6 hingga 100 -->
+          <?php 
+            for ($i = 6; $i <= 100; $i++) {
+              echo "<option value='{$i}'>{$i}</option>";
+            } 
+          ?>
+        </select>
+
+        <div class="form-item">Kategori</div>
+        <?php 
+          $types = array('Tentang Progate', 'Komentar/Opini', 'Karier', 'Media', 'Pembayaran', 'Lainnya');
+         ?>
+        <!-- Ketik tag <select> dibawah -->
+        <select name="category">
+          <option value="pilih">Alasan menghubungi kami</option>
+           <?php
+             foreach ($types as $type) {
+              echo "<option value='{$type}'>{$type}</option>";
+             }
+           ?>
+
+        </select>
+
         <div class="form-item">Pesan</div>
         <textarea name="body"></textarea>
-        <!-- Buat tombol kirim dibawah -->
+
         <input type="submit" value="Kirim">
-        
       </form>
     </div>
   </div>
